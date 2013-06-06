@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/floorPressureDelete"
+        android:title="Delete">
+    </item>
+    <item
+        android:id="@+id/floorPressureChart"
+        android:title="Chart">
+    </item>
+
+</menu>

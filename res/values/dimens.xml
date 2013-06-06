@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="weather_row_padding">10dip</dimen>
+    <dimen name="weather_row_space_padding">5dip</dimen>
+    <dimen name="weather_row_font_size">20dip</dimen>
+    <dimen name="weather_row_font_size_small">10dip</dimen>
+    <dimen name="weather_row_font_size_large">20dip</dimen>
+    <dimen name="largeText">50dip</dimen>
+    <dimen name="padding">5dip</dimen>
+    <dimen name="location_width">50dip</dimen>
+    <dimen name="mediumText">30dip</dimen>
+
+</resources>

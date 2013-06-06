@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dip" >
+
+    <include
+        layout="@layout/fragment_weather_info"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/mapImageView"
+        android:layout_width="match_parent"
+        android:layout_height="100dip"
+        android:src="@android:drawable/ic_menu_mapmode" />
+
+    <include layout="@layout/fragment_weather_list" />
+
+</LinearLayout>

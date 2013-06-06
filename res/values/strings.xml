@@ -1,0 +1,25 @@
+<resources>
+
+    <string name="app_name">TestBarometer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Test Barometer</string>
+    <string name="refreshWeather">Refresh weather</string>
+    <string name="refreshLocation">Refresh location</string>
+    <string name="altitude_title">Altitude</string>
+    <string name="weather_title">Weather</string>
+    <string name="floor_title">Floor</string>
+    <string name="pressure">Pressure</string>
+    <string name="hpa_title">(hPa)</string>
+    <string name="meters_title">(meters)</string>
+    <string name="meters_small">m</string>
+    <string name="altitude">Altitude</string>
+    <string name="sealevel">Sea level</string>
+    <string name="locationLat">lat</string>
+    <string name="locationLong">lon</string>
+    <string name="locationAlt">alt</string>
+    <string name="locationDistance">dist</string>
+    <string name="locationCurrent">Current</string>
+    <string name="locationSource">Source</string>
+
+</resources>

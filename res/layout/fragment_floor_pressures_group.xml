@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:paddingLeft="20dip" >
+
+    <TextView
+        android:id="@+id/floorPressureSetTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="@dimen/weather_row_padding"
+        android:singleLine="true"
+        android:ems="2"
+        android:text="Set" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:padding="@dimen/weather_row_padding" >
+
+        <TextView
+            android:id="@+id/floorPressureBuildingTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/weather_row_space_padding"
+            android:singleLine="true"
+            android:text="Building"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/floorPressureCountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="(0)"
+            android:textColor="@android:color/secondary_text_dark"
+            android:textSize="@dimen/weather_row_font_size_small" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="right"
+            android:padding="@dimen/weather_row_padding" >
+
+            <TextView
+                android:id="@+id/floorPressurePressureTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="@dimen/weather_row_space_padding"
+                android:singleLine="true"
+                android:text="Sealevel" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="hPa"
+                android:textColor="@android:color/secondary_text_dark" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/floorPressureDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="right"
+            android:padding="@dimen/weather_row_padding"
+            android:singleLine="true"
+            android:text="Date" />
+    </LinearLayout>
+
+</LinearLayout>
