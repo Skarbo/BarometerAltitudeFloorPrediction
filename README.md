@@ -3,9 +3,7 @@ Barometer Altitude and Floor Prediction
 
 An Android test application that uses the device barometer to predict the altitude and a building's floor level.
 
-# Features
-
-## Altitude prediction
+# Altitude prediction
 
 Altitude is predicted according to device pressure and sea level pressure. The altitude is calculated according to the [Barometric Formula](http://hyperphysics.phy-astr.gsu.edu/hbase/kinetic/barfor.html)
 
@@ -21,25 +19,25 @@ Sealevel pressure according to the nearest weather station. The weather info is 
 
 *Results*: The retrieved sealevel pressures are not accurate enough for the Barometric Formula
 
-## Floor prediction
+# Floor prediction
 
 Building floor is predicted according to pressures registered on other floors. The floor is predicted based on the average floor pressure. 
 
 ![Floor prediction][3]
 
-### Register floor pressure
+## Register floor pressure
 
 The high, low, and average floor pressure (over 5 sec.) is registered for a floor. The data is stored in the phone's internal database. 
 
 ![Register floor pressure][4]
 
-### Sync data to Dropbox
+## Sync data to Dropbox
 
 The application can be linked to Dropbox and the registered floor pressures can be pushed to an account. 
 
 ![Sync data to Dropbox][5]
 
-### Floor measurements
+## Floor measurements
 
 [Floor measurements](https://github.com/Skarbo/BarometerAltitudeFloorPrediction/blob/master/floor_measurements.html) for analyzing the floors pressure data.
 
