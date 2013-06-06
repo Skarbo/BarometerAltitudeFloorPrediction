@@ -5,8 +5,6 @@ A test application that uses the barometer to predict the altitude and a buildin
 
 # Features
 
-____
-
 ## Altitude prediction
 
 Altitude is prediceted according to device pressure and sea level pressure.
@@ -15,4 +13,4 @@ Altitude is prediceted according to device pressure and sea level pressure.
 
 *Results: Not accurate. Method will not be used*
 
- [1][https://lh4.googleusercontent.com/-_i4XDdZbojg/UbCcfLuniwI/AAAAAAAACU0/75kWyQ5XY-c/s288/Screenshot_2013-06-06-16-26-20.png]
+ [1]: https://lh4.googleusercontent.com/-_i4XDdZbojg/UbCcfLuniwI/AAAAAAAACU0/75kWyQ5XY-c/s288/Screenshot_2013-06-06-16-26-20.png
