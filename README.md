@@ -35,7 +35,7 @@ The high, low, and average floor pressure (over 5 sec.) is registered for a floo
 
 ### Sync data to Dropbox
 
-The application can be linked to Dropbox and the registered floor pressures can be pushed to the account. 
+The application can be linked to Dropbox and the registered floor pressures can be pushed to an account. 
 
 ![Sync data to Dropbox][5]
 
