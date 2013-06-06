@@ -1,8 +1,5 @@
 package com.example.testbarometer.helper;
 
-import android.app.ApplicationErrorReport.CrashInfo;
-import android.util.Log;
-
 import com.example.testbarometer.model.FloorPressure;
 import com.example.testbarometer.model.FloorPressures;
 
@@ -23,7 +20,8 @@ public class FloorPredictHelper {
 		double pressureAverage = this.floorPressures.getPressureAverage();
 		int floorSpan = getFloorSpan(floorLowest.getFloor(), floor);
 		int floorDirection = getFloorDirection(floorLowest.getFloor(), floor);
-		return floorLowest.getPressure() - (pressureAverage * floorSpan * floorDirection);
+		return floorLowest.getPressure()
+				- (pressureAverage * floorSpan * floorDirection);
 	}
 
 	/**
@@ -36,16 +34,21 @@ public class FloorPredictHelper {
 		if (this.floorPressures == null || this.floorPressures.isEmpty())
 			return floorPredictContainer;
 
-		floorPredictContainer.floorLowest = this.floorPressures.get(0).getFloor();
-		floorPredictContainer.pressureLowestFloor = this.floorPressures.get(0).getPressure();
-		floorPredictContainer.pressureAverage = this.floorPressures.getPressureAverage();
+		floorPredictContainer.floorLowest = this.floorPressures.get(0)
+				.getFloor();
+		floorPredictContainer.pressureLowestFloor = this.floorPressures.get(0)
+				.getPressure();
+		floorPredictContainer.pressureAverage = this.floorPressures
+				.getPressureAverage();
 
 		if (floorPredictContainer.pressureAverage == 0.0)
 			return floorPredictContainer;
 
-		double floorPredictRaw = floorPredictContainer.getPressureDiff() / floorPredictContainer.pressureAverage;
+		double floorPredictRaw = floorPredictContainer.getPressureDiff()
+				/ floorPredictContainer.pressureAverage;
 		floorPredictContainer.floorDiff = (int) Math.floor(floorPredictRaw);
-		double floorPredictRest = floorPredictRaw - floorPredictContainer.floorDiff;
+		double floorPredictRest = floorPredictRaw
+				- floorPredictContainer.floorDiff;
 
 		if (floorPredictRest > 0.8)
 			floorPredictContainer.floorDiff++;
@@ -94,7 +97,8 @@ public class FloorPredictHelper {
 	 *         floor is below first flow
 	 */
 	public static int getFloorDirection(int floorFirst, int floorSecond) {
-		return floorFirst == floorSecond ? 0 : (floorFirst > floorSecond ? -1 : 1);
+		return floorFirst == floorSecond ? 0 : (floorFirst > floorSecond ? -1
+				: 1);
 	}
 
 	/**
@@ -102,14 +106,17 @@ public class FloorPredictHelper {
 	 * @param floorPressureSecond
 	 * @return Average pressure between the two floors
 	 */
-	public static double getAveragePresure(FloorPressure floorPressureFirst, FloorPressure floorPressureSecond) {
+	public static double getAveragePresure(FloorPressure floorPressureFirst,
+			FloorPressure floorPressureSecond) {
 		if (floorPressureFirst == null || floorPressureSecond == null)
 			return 0.0;
-		int floorSpan = getFloorSpan(floorPressureFirst.getFloor(), floorPressureSecond.getFloor());
+		int floorSpan = getFloorSpan(floorPressureFirst.getFloor(),
+				floorPressureSecond.getFloor());
 		if (floorSpan == 0)
 			return 0.0;
 
-		double pressureDiff = Math.abs(floorPressureFirst.getPressure() - floorPressureSecond.getPressure());
+		double pressureDiff = Math.abs(floorPressureFirst.getPressure()
+				- floorPressureSecond.getPressure());
 		return pressureDiff / floorSpan;
 	}
 

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript"
+    src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+      google.load('visualization', '1', {packages: ['corechart', 'table']});
+    </script>
+<script type="text/javascript">
+
+var json = null;
+
+function doProcess()
+{
+	var jsonContent = $("#jsoncontent");
+	json = JSON.parse(jsonContent.val());
+	drawSets();
+}
+
+function drawSets()
+{
+	var data = new google.visualization.DataTable();
+    data.addColumn('number', 'Set');
+    data.addColumn('string', 'Building');
+    data.addColumn('date', 'Date');
+    data.addColumn('number', 'Average pressure');
+    data.addColumn('number', 'Pressures');
+
+    var rows = [];
+    for(var i in json)
+    {
+    	rows.push([json[i].set, json[i].building, new Date(json[i].date), json[i].pressureAverage, json[i].pressures.length]);
+    }
+    data.addRows(rows);
+
+    var visualization = new google.visualization.Table(document.getElementById('sets'));
+    visualization.draw(data, {sortColumn : 0, sortAscending : false, width : '500px'});
+
+    google.visualization.events.addListener(visualization, 'select',
+    function(event) {
+        //console.log(visualization.getSelection(), rows[visualization.getSelection()[0].row]);
+        drawSet(rows[visualization.getSelection()[0].row][0]);
+    });
+}
+
+function drawSet(setId)
+{
+	var set = json[setId];
+	if (!set)
+		return console.error("No set", setId, set);
+
+	var data = new google.visualization.DataTable();
+    data.addColumn('number', 'Floor');
+    data.addColumn('number', 'Pressure');
+    data.addColumn('number', 'Pressure High');
+    data.addColumn('number', 'Pressure Low');
+    data.addColumn('number', 'Sealevel');
+    data.addColumn('timeofday', 'Time');
+
+    var rows = [];
+    for(var i in set.pressures)
+    {
+        var date =  new Date(set.pressures[i].time);
+    	rows.push([set.pressures[i].floor, set.pressures[i].pressure, set.pressures[i].pressureHigh, set.pressures[i].pressureLow, set.pressures[i].sealevel,[date.getHours(), date.getMinutes(), date.getSeconds()]]);
+    }
+    data.addRows(rows);
+
+    var visualization = new google.visualization.Table(document.getElementById('set'));
+    visualization.draw(data, {sortColumn : 0, width : '700px'});
+
+    drawSetLines(set);
+    drawSetBars(set);
+}
+
+function drawSetLines(set)
+{
+	var data = [];
+
+	data.push(["Floor", "Average", "High", "Low", "Pressure"]);
+
+	set.pressures.sort(function(a,b){return a.floor > b.floor});
+	var first = set.pressures[0];
+    for(var i in set.pressures)
+    {
+        data.push([set.pressures[i].floor, first.pressure + ((set.pressures[i].floor - first.floor) * set.pressureAverage * -1), set.pressures[i].pressureHigh, set.pressures[i].pressureLow, set.pressures[i].pressure]);
+    }
+
+    new google.visualization.LineChart(document.getElementById('setChartLines')).
+        draw(google.visualization.arrayToDataTable(data), {width: 1000, height: 600}
+    );
+}
+
+function drawSetBars(set)
+{
+	var data = [];
+
+	data.push(["Floor", "Low", "Pressure", "High", "Average"]);
+
+	set.pressures.sort(function(a,b){return a.floor > b.floor});
+	var lowest = first = set.pressures[0];
+    for(var i in set.pressures)
+    {
+        if (lowest.pressureLow > set.pressures[i].pressureLow)
+        	lowest = set.pressures[i];
+    }
+    for(var i in set.pressures)
+    {
+        data.push([set.pressures[i].floor, set.pressures[i].pressureLow - lowest.pressureLow, set.pressures[i].pressure - set.pressures[i].pressureLow, set.pressures[i].pressureHigh - set.pressures[i].pressureLow, (first.pressure + ((set.pressures[i].floor - first.floor) * set.pressureAverage * -1)) - lowest.pressureLow]);
+    }
+
+    new google.visualization.ComboChart(document.getElementById('setChartBars')).
+        draw(google.visualization.arrayToDataTable(data), {width: 1000, height: 600, seriesType: "bars", series: {3: {type: "line"}}, isStacked: true }
+    );
+}
+
+</script>
+<style type="text/css">
+#sets {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#set {
+	display: inline-block;
+	vertical-align: top;
+}
+</style>
+</head>
+<body>
+    <div id="sets"></div>
+    <div id="set"></div>
+    <div id="setChartLines"></div>
+    <div id="setChartBars"></div>
+    <textarea rows="5" cols="100" id="jsoncontent"></textarea>
+    <br />
+    <button onclick="doProcess();">Process</button>
+</body>
+</html>

@@ -7,5 +7,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/httpmime-4.0.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/json_simple-1.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/dropbox-android-sdk.jar"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
