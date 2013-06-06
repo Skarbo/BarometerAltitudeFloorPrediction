@@ -1,7 +1,7 @@
 Barometer Altitude and Floor Prediction
 ================================
 
-A test application that uses the barometer to predict the altitude and a building's floor level.
+An Android test application that uses the device barometer to predict the altitude and a building's floor level.
 
 # Features
 
