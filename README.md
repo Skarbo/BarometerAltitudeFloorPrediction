@@ -29,7 +29,7 @@ Building floor is predicted according to pressures registered on other floors. T
 
 ### Register floor pressure
 
-The high, low, and average floor pressure is registered for a floor. The data is stored in the phone's internal database. 
+The high, low, and average floor pressure (over 5 sec.) is registered for a floor. The data is stored in the phone's internal database. 
 
 ![Register floor pressure][4]
 
