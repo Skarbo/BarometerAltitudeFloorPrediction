@@ -45,7 +45,7 @@ The application can be linked to Dropbox and the registered floor pressures can 
 
 ![8] ![6] ![7]
 
-*Results*: A floor prediction can be done by having two base stations at the two different floors (preferably top and bottom floor). The base stations measures the current pressure for its floor. The device predicts the floor according to the measurements and its current pressure. Tests show that the floor can be predicted with low error margin using a method like this. 
+*Results*: A floor prediction can be done by having two base stations at two different floors (preferably top and bottom floor). The base stations measures the current pressure for its floor. The device predicts the floor according to the measurements and its current pressure. Tests show that the floor can be predicted with low error margin using a method like this. 
 
  [1]: https://lh4.googleusercontent.com/-_i4XDdZbojg/UbCcfLuniwI/AAAAAAAACU0/75kWyQ5XY-c/s400/Screenshot_2013-06-06-16-26-20.png
  [2]: https://lh3.googleusercontent.com/-YaSHm0XVgKc/UbCchQLZTTI/AAAAAAAACU8/r6CAHUg5Y-I/s400/Screenshot_2013-06-06-16-26-26.png
